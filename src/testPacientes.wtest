@@ -1,0 +1,99 @@
+import pacientes.*
+import maquinas.*
+
+describe "tests para el paciente Leonardo"{
+    const leonardo = new Persona(edad=40, nivelDolor=10, nivelMuscular=20)
+
+    method initialize(){
+        const magneto = new Magneto()
+        const bici = new Bicicleta()
+        const minitramp = new Minitramp()
+
+        leonardo.agregarAparatoARutina(bici)
+        leonardo.agregarAparatoARutina(minitramp)
+        leonardo.agregarAparatoARutina(bici)
+        leonardo.agregarAparatoARutina(magneto)
+    }
+
+    test "puede usar el magneto"{ 
+        assert.that(leonardo.puedeUsarAparato(magneto))
+    }
+
+    test "puede usar la bici"{ 
+        assert.that(leonardo.puedeUsarAparato(bici))
+    }
+
+    test "puede usar el minitramp"{ 
+        assert.that(leonardo.puedeUsarAparato(minitramp))
+    }
+
+    test "puede usar los 3  aparatos"{ 
+        assert.that(leonardo.puedeHacerRutina())
+    }
+
+    test "disminuye el nivel de dolor a 9 usando el magneto"{
+        leonardo.usarAparato(magneto)
+        assert.equals(9, leonardo.nivelDolor())
+    }
+
+    test "disminuye el nivel de dolor a 6 luego de usar el magneto y la bici"{
+        leonardo.usarAparato(magneto)
+        leonardo.usarAparato(bici)
+        assert.equals(6, leonardo.nivelDolor())
+    }
+
+    test "sube el nivel muscular a 23 luego de usar el magneto y la bici"{
+        leonardo.usarAparato(magneto)
+        leonardo.usarAparato(bici)
+        assert.equals(23, leonardo.nivelMuscular())
+    }
+
+    test "sube el nivel muscular a 23 luego de usar el magneto y la bici"{
+        leonardo.hacerRutina()
+        assert.equals(24, leonardo.nivelMuscular())
+    }
+
+    test "luego de hacer la rutina, su nivel de dolor baja a 1.8"{
+        leonardo.hacerRutina()
+        assert.equals(1.8, leonardo.nivelDolor())
+    }
+
+    test "luego de hacer la rutina, su nivel muscular sube a 30"{
+        leonardo.hacerRutina()
+        assert.equals(30, leonardo.nivelMuscular())
+    }
+}
+
+describe "tests para el paciente Milena"{
+    const milena = new Persona(edad=3, nivelDolor=30, nivelMuscular=50)
+
+    method initialize(){
+        const magneto = new Magneto()
+        const bici = new Bicicleta()
+        const minitramp = new Minitramp()
+
+        milena.agregarAparatoARutina(magneto)
+        milena.agregarAparatoARutina(bici)
+    }
+
+    test "no puede hacer su rutina"{ 
+        assert.notThat(milena.puedeHacerRutina())
+    }
+
+    test "puede usar el magneto"{ 
+        assert.that(milena.puedeUsarAparato(magneto))
+    }
+
+    test "no puede usar la bici"{ 
+        assert.notThat(milena.puedeUsarAparato(bici))
+    }
+
+    test "no puede usar el minitramp"{ 
+        assert.notThat(milena.puedeUsarAparato(minitramp))
+    }
+
+    test "disminuye el nivel de dolor a 27 usando el magneto"{
+        milena.usarAparato(magneto)
+        assert.equals(27, leonardo.nivelDolor())
+    }
+}
