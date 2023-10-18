@@ -97,3 +97,64 @@ describe "tests para el paciente Milena"{
         assert.equals(27, leonardo.nivelDolor())
     }
 }
+
+describe "test para el paciente resistente Nicolas"{
+    const nicolas = new Resistente(edad=40, nivelDolor=10, nivelMuscular=20)
+
+    method initialize(){
+        const magneto = new Magneto()
+        const bici = new Bicicleta()
+        const minitramp = new Minitramp()
+
+        nicolas.agregarAparatoARutina(bici)
+        nicolas.agregarAparatoARutina(minitramp)
+        nicolas.agregarAparatoARutina(bici)
+        nicolas.agregarAparatoARutina(magneto)
+    }
+}
+
+describe "test para el paciente caprichoso Victoria"{
+    const victoria = new Resistente(edad=30, nivelDolor=10, nivelMuscular=40)
+
+    method initialize(){
+        const magneto = new Magneto(color='verde')
+        const bici = new Bicicleta(color='rojo')
+        const minitramp = new Minitramp()
+
+        victoria.agregarAparatoARutina(bici)
+        victoria.agregarAparatoARutina(minitramp)
+        victoria.agregarAparatoARutina(bici)
+        victoria.agregarAparatoARutina(magneto)
+    }
+}
+
+describe "test para el paciente caprichoso Julian"{
+    const julian = new Resistente(edad=20, nivelDolor=54, nivelMuscular=50)
+
+    method initialize(){
+        const magneto = new Magneto(color='verde')
+        const biciRoja = new Bicicleta(color='rojo')
+        const minitramp = new Minitramp()
+        const biciBlanca = new Bicicleta()
+
+        julian.agregarAparatoARutina(biciRoja)
+        julian.agregarAparatoARutina(minitramp)
+        julian.agregarAparatoARutina(biciBlanca)
+        julian.agregarAparatoARutina(magneto)
+    }
+}
+
+describe "test para el paciente de recuperacion rapida Zoe"{
+    const zoe = new Resistente(edad=50, nivelDolor=14, nivelMuscular=40)
+
+    method initialize(){
+        const magneto = new Magneto()
+        const bici = new Bicicleta()
+        const minitramp = new Minitramp()
+
+        zoe.agregarAparatoARutina(bici)
+        zoe.agregarAparatoARutina(minitramp)
+        zoe.agregarAparatoARutina(bici)
+        zoe.agregarAparatoARutina(magneto)
+    }
+}

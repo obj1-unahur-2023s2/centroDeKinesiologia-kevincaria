@@ -1,5 +1,5 @@
 class Maquina{
-    var property color
+    var property color = "blanco"
 
     method modificarNivelDolor(unPaciente)
 
