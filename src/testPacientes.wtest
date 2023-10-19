@@ -2,7 +2,7 @@ import pacientes.*
 import maquinas.*
 
 describe "tests para el paciente Leonardo"{
-    const leonardo = new Persona(edad=40, nivelDolor=10, nivelMuscular=20)
+    const leonardo = new Paciente(edad=40, nivelDolor=10, fortalezaMuscular=20)
 
     method initialize(){
         const magneto = new Magneto()
@@ -36,21 +36,19 @@ describe "tests para el paciente Leonardo"{
         assert.equals(9, leonardo.nivelDolor())
     }
 
-    test "disminuye el nivel de dolor a 6 luego de usar el magneto y la bici"{
-        leonardo.usarAparato(magneto)
+    test "disminuye el nivel de dolor a 6 luego de usar la bici"{
         leonardo.usarAparato(bici)
         assert.equals(6, leonardo.nivelDolor())
     }
 
-    test "sube el nivel muscular a 23 luego de usar el magneto y la bici"{
-        leonardo.usarAparato(magneto)
+    test "sube el nivel muscular a 23 luego de usar la bici"{
         leonardo.usarAparato(bici)
-        assert.equals(23, leonardo.nivelMuscular())
+        assert.equals(23, leonardo.fortalezaMuscular())
     }
 
-    test "sube el nivel muscular a 23 luego de usar el magneto y la bici"{
-        leonardo.hacerRutina()
-        assert.equals(24, leonardo.nivelMuscular())
+    test "sube el nivel muscular a 23 luego de usar el minitramp"{
+        leonardo.usarAparato(minitramp)
+        assert.equals(24, leonardo.fortalezaMuscular())
     }
 
     test "luego de hacer la rutina, su nivel de dolor baja a 1.8"{
@@ -60,12 +58,12 @@ describe "tests para el paciente Leonardo"{
 
     test "luego de hacer la rutina, su nivel muscular sube a 30"{
         leonardo.hacerRutina()
-        assert.equals(30, leonardo.nivelMuscular())
+        assert.equals(30, leonardo.fortalezaMuscular())
     }
 }
 
 describe "tests para el paciente Milena"{
-    const milena = new Persona(edad=3, nivelDolor=30, nivelMuscular=50)
+    const milena = new Paciente(edad=3, nivelDolor=30, fortalezaMuscular=50)
 
     method initialize(){
         const magneto = new Magneto()
@@ -99,7 +97,7 @@ describe "tests para el paciente Milena"{
 }
 
 describe "test para el paciente resistente Nicolas"{
-    const nicolas = new Resistente(edad=40, nivelDolor=10, nivelMuscular=20)
+    const nicolas = new Resistente(edad=40, nivelDolor=10, fortalezaMuscular=20)
 
     method initialize(){
         const magneto = new Magneto()
@@ -114,7 +112,7 @@ describe "test para el paciente resistente Nicolas"{
 }
 
 describe "test para el paciente caprichoso Victoria"{
-    const victoria = new Resistente(edad=30, nivelDolor=10, nivelMuscular=40)
+    const victoria = new Resistente(edad=30, nivelDolor=10, fortalezaMuscular=40)
 
     method initialize(){
         const magneto = new Magneto(color='verde')
@@ -129,7 +127,7 @@ describe "test para el paciente caprichoso Victoria"{
 }
 
 describe "test para el paciente caprichoso Julian"{
-    const julian = new Resistente(edad=20, nivelDolor=54, nivelMuscular=50)
+    const julian = new Resistente(edad=20, nivelDolor=54, fortalezaMuscular=50)
 
     method initialize(){
         const magneto = new Magneto(color='verde')
@@ -145,7 +143,7 @@ describe "test para el paciente caprichoso Julian"{
 }
 
 describe "test para el paciente de recuperacion rapida Zoe"{
-    const zoe = new Resistente(edad=50, nivelDolor=14, nivelMuscular=40)
+    const zoe = new Resistente(edad=50, nivelDolor=14, fortalezaMuscular=40)
 
     method initialize(){
         const magneto = new Magneto()

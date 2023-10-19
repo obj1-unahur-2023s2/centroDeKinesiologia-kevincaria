@@ -3,7 +3,7 @@ class Maquina{
 
     method modificarNivelDolor(unPaciente)
 
-    method modificarNivelMuscular(unPaciente)
+    method modificarFortalezaMuscular(unPaciente)
 
     method puedeSerUsado(unPaciente)
 
@@ -19,7 +19,7 @@ class Magneto inherits Maquina{
 
     override method modificarNivelDolor(unPaciente) = (unPaciente.nivelDolor()*0.1)
     
-    override method modificarNivelMuscular(unPaciente) = 0
+    override method modificarFortalezaMuscular(unPaciente) = 0
 
     override method puedeSerUsado(unPaciente) = true
 
@@ -42,7 +42,7 @@ class Bicicleta inherits Maquina{
     
     override method modificarNivelDolor(unPaciente)= 4
 
-    override method modificarNivelMuscular(unPaciente) = 3     
+    override method modificarFortalezaMuscular(unPaciente) = 3     
 
     override method puedeSerUsado(unPaciente) = unPaciente.edad() > 8
 
@@ -68,7 +68,7 @@ class Bicicleta inherits Maquina{
 class Minitramp inherits Maquina{
     override method modificarNivelDolor(unPaciente)= 0
 
-    override method modificarNivelMuscular(unPaciente) = (unPaciente.edad()) * 0.1
+    override method modificarFortalezaMuscular(unPaciente) = (unPaciente.edad()) * 0.1
 
     override method puedeSerUsado(unPaciente) = unPaciente.nivelDolor() < 20
 

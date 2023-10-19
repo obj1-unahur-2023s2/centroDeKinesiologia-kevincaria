@@ -1,19 +1,19 @@
 class Paciente{
     const property edad
     var nivelDolor
-    var nivelMuscular
+    var fortalezaMuscular
     const ordenRutina = []
 
     method nivelDolor() = nivelDolor
     
-    method nivelMuscular() = nivelMuscular
+    method fortalezaMuscular() = fortalezaMuscular
 
     method usarAparato(unAparato){
         if(not self.puedeUsarAparato(unAparato)){
             throw new Exception(message="El paciente no puede usar este aparato")
         }
         nivelDolor = 0.max(nivelDolor - unAparato.modificarNivelDolor(self)) 
-        nivelMuscular += unAparato.modificarNivelMuscular(self)
+        fortalezaMuscular += unAparato.modificarFortalezaMuscular(self)
         unAparato.desgastarMaquina() 
     }
 
@@ -40,15 +40,15 @@ class Paciente{
 class Resistente inherits Paciente{
     override method usarAparato(unAparato){
         super()
-        nivelMuscular += 1
+        fortalezaMuscular += 1
     }
 }
 
 class Caprichoso inherits Paciente{
-    override method puedeUsarAparato(unAparato){
-        return super() and unAparato.color() == 'rojo'
-    }
-    
+    override method puedeHacerRutina() = super() and self.hayAparatoRojo()
+
+    method hayAparatoRojo() = ordenRutina.any({aparato => aparato.color() == 'rojo'})
+
     override method hacerRutina(){
         super()
         super()
@@ -63,7 +63,7 @@ class RapidaRecuperacion inherits Paciente{
 }
 
 object valorRecuperacionRapida{
-    method valor() = 3
+    var property valor = 3
 }
 
 class Centro{
