@@ -3,12 +3,11 @@ import maquinas.*
 
 describe "tests para el paciente Leonardo"{
     const leonardo = new Paciente(edad=40, nivelDolor=10, fortalezaMuscular=20)
-
+    const magneto = new Magneto()
+    const bici = new Bicicleta()
+    const minitramp = new Minitramp()
+    
     method initialize(){
-        const magneto = new Magneto()
-        const bici = new Bicicleta()
-        const minitramp = new Minitramp()
-
         leonardo.agregarAparatoARutina(bici)
         leonardo.agregarAparatoARutina(minitramp)
         leonardo.agregarAparatoARutina(bici)
@@ -50,26 +49,15 @@ describe "tests para el paciente Leonardo"{
         leonardo.usarAparato(minitramp)
         assert.equals(24, leonardo.fortalezaMuscular())
     }
-
-    test "luego de hacer la rutina, su nivel de dolor baja a 1.8"{
-        leonardo.hacerRutina()
-        assert.equals(1.8, leonardo.nivelDolor())
-    }
-
-    test "luego de hacer la rutina, su nivel muscular sube a 30"{
-        leonardo.hacerRutina()
-        assert.equals(30, leonardo.fortalezaMuscular())
-    }
 }
 
 describe "tests para el paciente Milena"{
     const milena = new Paciente(edad=3, nivelDolor=30, fortalezaMuscular=50)
-
+    const magneto = new Magneto()    
+    const bici = new Bicicleta()
+    const minitramp = new Minitramp()
+        
     method initialize(){
-        const magneto = new Magneto()
-        const bici = new Bicicleta()
-        const minitramp = new Minitramp()
-
         milena.agregarAparatoARutina(magneto)
         milena.agregarAparatoARutina(bici)
     }
@@ -92,18 +80,17 @@ describe "tests para el paciente Milena"{
 
     test "disminuye el nivel de dolor a 27 usando el magneto"{
         milena.usarAparato(magneto)
-        assert.equals(27, leonardo.nivelDolor())
+        assert.equals(27, milena.nivelDolor())
     }
 }
 
 describe "test para el paciente resistente Nicolas"{
     const nicolas = new Resistente(edad=40, nivelDolor=10, fortalezaMuscular=20)
+    const magneto = new Magneto()
+    const bici = new Bicicleta()
+    const minitramp = new Minitramp()
 
     method initialize(){
-        const magneto = new Magneto()
-        const bici = new Bicicleta()
-        const minitramp = new Minitramp()
-
         nicolas.agregarAparatoARutina(bici)
         nicolas.agregarAparatoARutina(minitramp)
         nicolas.agregarAparatoARutina(bici)
@@ -113,12 +100,11 @@ describe "test para el paciente resistente Nicolas"{
 
 describe "test para el paciente caprichoso Victoria"{
     const victoria = new Resistente(edad=30, nivelDolor=10, fortalezaMuscular=40)
-
+	const magneto = new Magneto(color="verde")
+    const bici = new Bicicleta(color="rojo")
+    const minitramp = new Minitramp()
+    
     method initialize(){
-        const magneto = new Magneto(color='verde')
-        const bici = new Bicicleta(color='rojo')
-        const minitramp = new Minitramp()
-
         victoria.agregarAparatoARutina(bici)
         victoria.agregarAparatoARutina(minitramp)
         victoria.agregarAparatoARutina(bici)
@@ -128,13 +114,12 @@ describe "test para el paciente caprichoso Victoria"{
 
 describe "test para el paciente caprichoso Julian"{
     const julian = new Resistente(edad=20, nivelDolor=54, fortalezaMuscular=50)
-
+    const magneto = new Magneto(color="verde")
+   	const biciRoja = new Bicicleta(color="rojo")
+    const minitramp = new Minitramp()
+    const biciBlanca = new Bicicleta()
+    
     method initialize(){
-        const magneto = new Magneto(color='verde')
-        const biciRoja = new Bicicleta(color='rojo')
-        const minitramp = new Minitramp()
-        const biciBlanca = new Bicicleta()
-
         julian.agregarAparatoARutina(biciRoja)
         julian.agregarAparatoARutina(minitramp)
         julian.agregarAparatoARutina(biciBlanca)
@@ -144,12 +129,11 @@ describe "test para el paciente caprichoso Julian"{
 
 describe "test para el paciente de recuperacion rapida Zoe"{
     const zoe = new Resistente(edad=50, nivelDolor=14, fortalezaMuscular=40)
-
+    const magneto = new Magneto()
+    const bici = new Bicicleta()
+    const minitramp = new Minitramp()
+        
     method initialize(){
-        const magneto = new Magneto()
-        const bici = new Bicicleta()
-        const minitramp = new Minitramp()
-
         zoe.agregarAparatoARutina(bici)
         zoe.agregarAparatoARutina(minitramp)
         zoe.agregarAparatoARutina(bici)

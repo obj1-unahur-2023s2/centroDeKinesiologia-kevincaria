@@ -14,7 +14,7 @@ class Paciente{
         }
         nivelDolor = 0.max(nivelDolor - unAparato.modificarNivelDolor(self)) 
         fortalezaMuscular += unAparato.modificarFortalezaMuscular(self)
-        unAparato.desgastarMaquina() 
+        unAparato.desgastarMaquina(self) 
     }
 
     method puedeUsarAparato(unAparato) = unAparato.puedeSerUsado(self)
@@ -29,17 +29,17 @@ class Paciente{
     method puedeHacerRutina() = ordenRutina.all({aparato => self.puedeUsarAparato(aparato)})
 
     method agregarAparatoARutina(unAparato){
-        rutina.add(unAparato)
+        ordenRutina.add(unAparato)
     }
 
     method sacarAparatoDeRutina(unAparato){
-        rutina.remove(unAparato)
+        ordenRutina.remove(unAparato)
     }
 }
 
 class Resistente inherits Paciente{
     override method usarAparato(unAparato){
-        super()
+        super(unAparato)
         fortalezaMuscular += 1
     }
 }
